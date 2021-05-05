@@ -140,9 +140,8 @@ h2 {
 }
 
 @media (max-width: 600px) {
-    .btn-container {
-        display: grid;
-        grid-template-rows: auto;
-        grid-gap: 5px;
+    #btm-links {
+        display: flex;
+        flex-direction: column;
     }
 }
