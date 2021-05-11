@@ -259,6 +259,30 @@ p.text span {
     filter: grayscale(25%);
 }
 
+.btn-container {
+    position: relative;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 35px;
+}
+
+.redirect-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 15px;
+    background-color: rgb(0, 0, 0, 0.3);
+    padding: 10px;
+}
+
+.rewind, .forward {
+    width: 10px;
+    margin: 0 10px;
+    filter: invert(1);
+}
+
+
 /*--------------responsive media queries-------------*/
 
 @media (max-width: 600px) {
@@ -274,5 +298,9 @@ p.text span {
     }
     .content iframe {
         width: 95%;
+    }
+    #btm-links {
+        margin: 50px;
+        padding-bottom: 50px;
     }
 }
