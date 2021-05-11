@@ -88,7 +88,7 @@ movieSelect.addEventListener('change', e => {
 // Initial count and total price
 updateSelectedCount();
 
-
+// Event listener and the function for showing the movie details based on the movie selection
 movieSelect.addEventListener('change', function () {
     var style1 = this.value == 10 ? 'block' : 'none';
     var style2 = this.value == 15 ? 'block' : 'none';
