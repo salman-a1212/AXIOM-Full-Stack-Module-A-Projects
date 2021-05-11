@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Movie Seat Selection</title>
+</head>
+
+<body>
+    <div class="page-container">
+        <div class="app-container">
+            <h2 class="app-title">Movie Seat Selection App</h2>
+            <!-- Container for movies -->
+            <div class="movie-container">
+                <label for="movie">Please pick a movie:</label>
+                <!-- This is the dropdown to select movies -->
+                <select id="movie">
+                    <option value="" disabled selected hidden>Your selection...</option>
+                    <option value="10">The Batman</option>
+                    <option value="15">Top Gun 2</option>
+                    <option value="20">Mission: Impossible 7</option>
+                    <option value="12">No Time to Die</option>
+                    <option value="17">Star Wars (Episode IX)</option>
+                </select>
+            </div>
+
+            <!-- Legend to display types of seats -->
+            <ul class="showcase">
+                <li>
+                    <div class="seat"></div>
+                    <small>Available</small>
+                </li>
+                <li>
+                    <div class="seat selected"></div>
+                    <small>Selected</small>
+                </li>
+                <li>
+                    <div class="seat occupied"></div>
+                    <small>Occupied</small>
+                </li>
+            </ul>
+
+            <!-- Container for Theater Seating Map -->
+            <div class="container">
+                <!-- This is the class to show the Movie Screen -->
+                <div class="screen"></div>
+                <!-- 6 Rows x 8 Columns Seating Chart -->
+                <div class="row">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat occupied"></div>
+                    <div class="seat occupied"></div>
+                    <div class="seat occupied"></div>
+                    <div class="seat"></div>
+                </div>
+                <div class="row">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat occupied"></div>
+                </div>
+                <div class="row">
+                    <div class="seat"></div>
+                    <div class="seat occupied"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+                <div class="row">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+                <div class="row">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat occupied"></div>
+                    <div class="seat occupied"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+                <div class="row">
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat occupied"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                    <div class="seat"></div>
+                </div>
+            </div>
+
+            <p class="text">You have selected <span id="count">0</span> seats for a total price of <span
+                    id="total">0</span>.</p>
+
+                </div>
+                <div class="desc-container" id="desc-container">
+                    <div class="movie-selected" id="movie-1">
+                        <div class="content" id="content-1">
+                            <h2>The Batman</h2>
+                            <p>The Riddler plays a deadly game of cat and mouse with Batman and Commissioner Gordon in Gotham
+                                City.</p>
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/U3olJWzIKvY"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="movie-selected" id="movie-2">
+                            <div class="content" id="content-2">
+                                <h2>Top Gun: Maverick</h2>
+                                <p>After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell is where
+                                    he belongs, pushing the envelope as a courageous test pilot and dodging the advancement in rank
+                                    that would ground him.</p>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/qSqVVswa420"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                                </div>
+                            </div>
+                            <div class="movie-selected" id="movie-3">
+                                <div class="content" id="content-3">
+                                    <h2>Mission: Impossible 7</h2>
+                                    <p>Mission: Impossible 7 is an upcoming American action spy film starring Tom Cruise, who reprises
+                                        his role as Ethan Hunt, and written and directed by Christopher McQuarrie.</p>
+                                        <iframe width="560" height="315" src="https://www.youtube.com/embed/l-zfdarsQH0"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                                    </div>
+                                </div>
+                                <div class="movie-selected" id="movie-4">
+                                    <div class="content" id="content-4">
+                                        <h2>No Time to Die</h2>
+                                        <p>James Bond has left active service. His peace is short-lived when Felix Leiter, an old friend
+                                            from the CIA, turns up asking for help, leading Bond onto the trail of a mysterious villain
+                                            armed with dangerous new technology.</p>
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/BIhNsAtPbPI"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                    <div class="movie-selected" id="movie-5">
+                                        <div class="content" id="content-5">
+                                            <h2>Star Wars: The Rise of Skywalker (Episode IX)</h2>
+                                            <p>The surviving members of the Resistance face the First Order once again, and the legendary
+                                                conflict between the Jedi and the Sith reaches its peak, bringing the Skywalker saga to its end.
+                                            </p>
+                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/8Qn_spdM5Zg"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <script src="script.js"></script>
+                        </body>
+                        
+                        </html>
