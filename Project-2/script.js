@@ -103,3 +103,10 @@ movieSelect.addEventListener('change', function () {
     movieDesc5.style.display = style5;
     document.getElementById('desc-container').style.display = style6;
 });
+
+// Function for resetting movie selection list on page refresh
+onload = function Reset() {
+    var dropDown = movieSelect;
+    dropDown.selectedIndex = 0;
+}
+
