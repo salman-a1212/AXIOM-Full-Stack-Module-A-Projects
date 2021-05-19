@@ -5,6 +5,12 @@ const stop = document.getElementById('stop');
 const progress = document.getElementById('progress');
 const timestamp = document.getElementById('timestamp');
 const centerBtn = document.getElementById('center-play');
+const duration = document.getElementById('duration');
+const volume = document.getElementById('volume');
+const volumeIcon = document.getElementById('vol-icon');
+const controls = document.getElementById('controls');
+const videoPlayer = document.getElementById('video-player');
+const fullScreen = document.getElementById('fullscreen');
 
 // Create function for clicking on video
 function toggleVideoStatus() {
@@ -107,4 +113,75 @@ stop.onclick = function() {
     }
 }
 
+// Function for updating timestamp to show total video duration
+const currentTime = () => {
+    let currentMinutes = Math.floor(video.currentTime / 60);
+    let currentSeconds = Math.floor(video.currentTime - currentMinutes * 60);
+    let durationMinutes = Math.floor(video.duration / 60);
+    let durationSeconds = Math.floor(video.duration - durationMinutes * 60);
 
+    timestamp.innerHTML = `${currentMinutes}:${currentSeconds < 10 ? '0'+currentSeconds : currentSeconds}`;
+    duration.innerHTML = `${durationMinutes}:${durationSeconds}`;
+}
+// Event listener for updating timestamp to show total video duration
+video.addEventListener('timeupdate', currentTime);
+
+// Function and event listener for controlling video volume through slider
+volume.addEventListener('mousemove', e => {
+    video.volume = e.target.value;
+})
+
+
+volumeIcon.onmouseover = function() {
+    volume.style.display = "block";
+}
+
+video.onmouseout = function() {
+    volume.style.display = "none";
+}
+
+volume.onmousemove = function() {
+    if(video.volume === 0) {
+        volumeIcon.innerHTML = '<i class="fas fa-volume-mute"></i>';
+    } else {
+        volumeIcon.innerHTML = '<i class="fas fa-volume-up"></i>';
+    }
+}
+
+fullScreen.addEventListener('click', toggleFullScreen);
+
+function toggleFullScreen() {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) { /* Safari */
+      video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) { /* IE11 */
+      video.msRequestFullscreen();
+    }
+  }
+
+//   fullScreen.addEventListener('click', closeFullScreen);  
+// /* Close fullscreen */
+// function closeFullScreen() {
+//     if (document.exitFullscreen) {
+//       document.exitFullscreen();
+//     } else if (document.webkitExitFullscreen) { /* Safari */
+//       document.webkitExitFullscreen();
+//     } else if (document.msExitFullscreen) { /* IE11 */
+//       document.msExitFullscreen();
+//     }
+//   }
+
+//   var elem = document.documentElement;
+
+//   function openFullscreen() {
+//     if (elem.requestFullscreen) {
+//       elem.requestFullscreen();
+//     } else if (elem.webkitRequestFullscreen) { /* Safari */
+//       elem.webkitRequestFullscreen();
+//     } else if (elem.msRequestFullscreen) { /* IE11 */
+//       elem.msRequestFullscreen();
+//     }
+//   }
+
+//   fullScreen.addEventListener('click', openFullscreen);
