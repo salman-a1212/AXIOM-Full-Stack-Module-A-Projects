@@ -76,9 +76,10 @@ stop.addEventListener('click', stopVideo);
 progress.addEventListener('change', setVideoProgress);
 
 
-
+// Event listener on clicking the big play icon 
 centerBtn.addEventListener('click', togglePlayPause);
 
+// Function to play/pause video on clicking the big play icon 
 function togglePlayPause() {
     if (video.paused) {
         video.play();
@@ -89,6 +90,7 @@ function togglePlayPause() {
     }
 }
 
+// Function to show/hide the big play button on clicking the video element  
 video.onclick = function () {
     if (video.paused) {
         centerBtn.style.display = "block";
@@ -97,6 +99,7 @@ video.onclick = function () {
     }
 }
 
+// Function to show/hide the big play button on clicking the play button  
 play.onclick = function () {
     if (video.paused) {
         centerBtn.style.display = "block";
@@ -105,6 +108,7 @@ play.onclick = function () {
     }
 }
 
+// Function to stop video and to show/hide big play icon 
 stop.onclick = function () {
     if (video.paused) {
         centerBtn.style.display = "block";
@@ -131,15 +135,17 @@ volume.addEventListener('mousemove', e => {
     video.volume = e.target.value;
 })
 
-
+// Function for showing volume slider
 volumeIcon.onmouseover = function () {
     volume.style.display = "block";
 }
 
+// Function for hiding volume slider
 video.onmouseout = function () {
     volume.style.display = "none";
 }
 
+// Function for toggling volume icon on mute through volume slider
 volume.onmousemove = function () {
     if (video.volume === 0) {
         volumeIcon.innerHTML = '<i class="fas fa-volume-mute"></i>';
@@ -148,30 +154,27 @@ volume.onmousemove = function () {
     }
 }
 
+// Event listener on toggling full screen button
 fullScreen.addEventListener('click', toggleFullScreen);
 
+
+// Function for entering/exiting full screen
 function toggleFullScreen() {
-    if (video.requestFullscreen) {
-        video.requestFullscreen();
-    } else if (video.webkitRequestFullscreen) { /* Safari */
-        video.webkitRequestFullscreen();
-    } else if (video.msRequestFullscreen) { /* IE11 */
-        video.msRequestFullscreen();
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+        controls.style.cssText = "width: 100%; position:fixed; top: 92%; border-bottom-left-radius: 0; border-bottom-right-radius: 0;";
+        video.style.cssText = "width: 100%; height: 100%; border-top-left-radius: 0; border-top-right-radius: 0;";
+        videoPlayer.style.cssText = "min-height: 0";
+        document.getElementById('h1').style.display = "none";
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        }
+        controls.style.cssText = "width: 60%;";
+        video.style.cssText = "width: 60%;";
+        document.getElementById('h1').style.display = "block";
+        videoPlayer.style.cssText = "min-height: 100vh";
     }
 }
-
-fullScreen.addEventListener('click', closeFullScreen);
-/* Close fullscreen */
-function closeFullScreen() {
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.webkitExitFullscreen) { /* Safari */
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) { /* IE11 */
-        document.msExitFullscreen();
-    }
-}
-
-
 
 
