@@ -157,24 +157,32 @@ volume.onmousemove = function () {
 // Event listener on toggling full screen button
 fullScreen.addEventListener('click', toggleFullScreen);
 
-
-// Function for entering/exiting full screen
+// Function for entering and exiting fullscreen
 function toggleFullScreen() {
+    if (screen && screen.width > 600) {
     if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-        controls.style.cssText = "width: 100%; position:fixed; top: 92%; border-bottom-left-radius: 0; border-bottom-right-radius: 0;";
-        video.style.cssText = "width: 100%; height: 100%; border-top-left-radius: 0; border-top-right-radius: 0;";
-        videoPlayer.style.cssText = "min-height: 0";
-        document.getElementById('h1').style.display = "none";
-    } else {
-        if (document.exitFullscreen) {
-            document.exitFullscreen();
+            document.documentElement.requestFullscreen();
+            controls.style.cssText = "width: 100%; position:fixed; top: 92%; border-bottom-left-radius: 0; border-bottom-right-radius: 0;";
+            video.style.cssText = "width: 100%; height: 100%; border-top-left-radius: 0; border-top-right-radius: 0;";
+            videoPlayer.style.cssText = "min-height: 0";
+            document.getElementById('h1').style.display = "none";
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+            controls.style.cssText = "width: 60%;";
+            video.style.cssText = "width: 60%;";
+            document.getElementById('h1').style.display = "block";
+            videoPlayer.style.cssText = "min-height: 100vh";
         }
-        controls.style.cssText = "width: 60%;";
-        video.style.cssText = "width: 60%;";
-        document.getElementById('h1').style.display = "block";
-        videoPlayer.style.cssText = "min-height: 100vh";
+    } else {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.webkitRequestFullscreen) { /* Safari */
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { /* IE11 */
+                video.msRequestFullscreen();
+            }  
     }
-}
-
+}    
 
