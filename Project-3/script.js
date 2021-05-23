@@ -186,3 +186,13 @@ function toggleFullScreen() {
     }
 }    
 
+// Function for hiding/showing custom video controls when mouse is active/inactive
+var timeout;
+var timePeriod = 2000;
+document.addEventListener('mousemove', function() {
+  controls.style.display = "block";
+  clearTimeout(timeout);
+  timeout = setTimeout(function() {
+    controls.style.display = "none";
+  }, timePeriod)
+});
