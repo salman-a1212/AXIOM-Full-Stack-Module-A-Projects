@@ -170,7 +170,7 @@ fullScreen.addEventListener('click', toggleFullScreen);
 // Function for entering and exiting fullscreen
 function toggleFullScreen() {
     if (screen && screen.width > 600) {
-    if (!document.fullscreenElement) {
+        if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen();
             controls.style.cssText = "width: 100%; position:fixed; top: 92%; border-bottom-left-radius: 0; border-bottom-right-radius: 0;";
             video.style.cssText = "width: 100%; height: 100%; border-top-left-radius: 0; border-top-right-radius: 0;";
@@ -186,29 +186,34 @@ function toggleFullScreen() {
             videoPlayer.style.cssText = "min-height: 100vh";
         }
     } else {
-            if (video.requestFullscreen) {
-                video.requestFullscreen();
-            } else if (video.webkitRequestFullscreen) { /* Safari */
-                video.webkitRequestFullscreen();
-            } else if (video.msRequestFullscreen) { /* IE11 */
-                video.msRequestFullscreen();
-            }  
+        if (video.requestFullscreen) {
+            video.requestFullscreen();
+        } else if (video.webkitRequestFullscreen) { /* Safari */
+            video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) { /* IE11 */
+            video.msRequestFullscreen();
+        }
     }
-}    
+}
 
 // Function for hiding/showing custom video controls when mouse is active/inactive
 var timeout;
 var timePeriod = 2000;
-document.addEventListener('mousemove', function() { 
-  controls.style.display = "block";
-  clearTimeout(timeout);
-  timeout = setTimeout(function() {
-    controls.style.display = "none";
-  }, timePeriod)
+document.addEventListener('mousemove', function () {
+    controls.style.display = "block";
+    clearTimeout(timeout);
+    timeout = setTimeout(function () {
+        controls.style.display = "none";
+    }, timePeriod)
 });
 
 // Function for displaying replay button after the video finishes
-video.onended = function() {
-    centerBtn.innerHTML = "<img src='http://www.iconninja.com/files/838/134/365/replay-icon.png' style='filter:invert(1); cursor:pointer;'/>";
-    centerBtn.style.display = "block";
+video.onended = function () {
+    if (screen && screen.width < 600) {
+        centerBtn.innerHTML = "<img src='http://www.iconninja.com/files/838/134/365/replay-icon.png' style='filter:invert(1); cursor:pointer width: 56px; height: 56px'/>";
+        centerBtn.style.display = "block";
+    } else {
+        centerBtn.innerHTML = "<img src='http://www.iconninja.com/files/838/134/365/replay-icon.png' style='filter:invert(1); cursor:pointer;'/>";
+        centerBtn.style.display = "block";
+    }
 }
