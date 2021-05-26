@@ -57,6 +57,8 @@ function stopVideo() {
 // Create function to update the video progress using the slider
 function setVideoProgress() {
     video.currentTime = (+progress.value * video.duration) / 100;
+    console.log(video.currentTime);
+    console.log(video.duration);
 }
 
 // Event Listeners
@@ -84,9 +86,11 @@ function togglePlayPause() {
     if (video.paused) {
         video.play();
         centerBtn.style.display = "none";
+        centerBtn.innerHTML = '<i class="fas fa-play-circle"></i>';
     } else {
         video.pause();
         centerBtn.style.display = "block";
+        centerBtn.innerHTML = '<i class="fas fa-play-circle"></i>';
     }
 }
 
@@ -94,8 +98,10 @@ function togglePlayPause() {
 video.onclick = function () {
     if (video.paused) {
         centerBtn.style.display = "block";
+        centerBtn.innerHTML = '<i class="fas fa-play-circle"></i>';
     } else {
         centerBtn.style.display = "none";
+        centerBtn.innerHTML = '<i class="fas fa-play-circle"></i>';
     }
 }
 
@@ -103,8 +109,10 @@ video.onclick = function () {
 play.onclick = function () {
     if (video.paused) {
         centerBtn.style.display = "block";
+        centerBtn.innerHTML = '<i class="fas fa-play-circle"></i>';
     } else {
         centerBtn.style.display = "none";
+        centerBtn.innerHTML = '<i class="fas fa-play-circle"></i>';
     }
 }
 
@@ -112,8 +120,10 @@ play.onclick = function () {
 stop.onclick = function () {
     if (video.paused) {
         centerBtn.style.display = "block";
+        centerBtn.innerHTML = '<i class="fas fa-play-circle"></i>';
     } else {
         centerBtn.style.display = "none";
+        centerBtn.innerHTML = '<i class="fas fa-play-circle"></i>';
     }
 }
 
@@ -189,10 +199,16 @@ function toggleFullScreen() {
 // Function for hiding/showing custom video controls when mouse is active/inactive
 var timeout;
 var timePeriod = 2000;
-document.addEventListener('mousemove', function() {
+document.addEventListener('mousemove', function() { 
   controls.style.display = "block";
   clearTimeout(timeout);
   timeout = setTimeout(function() {
     controls.style.display = "none";
   }, timePeriod)
 });
+
+// Function for displaying replay button after the video finishes
+video.onended = function() {
+    centerBtn.innerHTML = "<img src='http://www.iconninja.com/files/838/134/365/replay-icon.png' style='filter:invert(1); cursor:pointer;'/>";
+    centerBtn.style.display = "block";
+}
