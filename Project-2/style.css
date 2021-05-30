@@ -302,7 +302,7 @@ p.text span {
 @media (max-width: 600px) {
     .page-container {
         display: flex;
-        flex-direction: column;
+        flex-direction: column;  
     }
     .app-container {
         width: 100%;
@@ -316,5 +316,13 @@ p.text span {
     #btm-links {
         margin: 50px;
         padding-bottom: 50px;
+    }
+    .movie-container {
+        margin: 0 15px;
+        display: flex;
+        flex-direction: column;
+    }
+    #movie {
+        margin: 10px 0;
     }
 }
