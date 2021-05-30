@@ -9,6 +9,8 @@ const movieDesc2 = document.getElementById('movie-2');
 const movieDesc3 = document.getElementById('movie-3');
 const movieDesc4 = document.getElementById('movie-4');
 const movieDesc5 = document.getElementById('movie-5');
+const descCon = document.getElementById('desc-container');
+const reset = document.getElementById('reset');
 
 populateUI();
 
@@ -16,18 +18,18 @@ let ticketPrice = +movieSelect.value;
 
 function updateSelectedCount() {
     if (movieSelect.value !== "") {
-    // Get all seats that are selected
-    const selectedSeats = document.querySelectorAll('.row .seat.selected');
-    // Get the index of selected seats from all seats
-    const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
-    // Getting the count of total selected seats
-    const selectedSeatsCount = selectedSeats.length;
-    // Updating the UI to show number of selected seats
-    count.innerText = selectedSeatsCount;
-    // Updating the UI to show total price of tickets
-    total.innerText = "$" + selectedSeatsCount * ticketPrice;
-    // Saving to Local Storage
-    localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex))
+        // Get all seats that are selected
+        const selectedSeats = document.querySelectorAll('.row .seat.selected');
+        // Get the index of selected seats from all seats
+        const seatsIndex = [...selectedSeats].map(seat => [...seats].indexOf(seat));
+        // Getting the count of total selected seats
+        const selectedSeatsCount = selectedSeats.length;
+        // Updating the UI to show number of selected seats
+        count.innerText = selectedSeatsCount;
+        // Updating the UI to show total price of tickets
+        total.innerText = "$" + selectedSeatsCount * ticketPrice;
+        // Saving to Local Storage
+        localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex))
     }
 }
 
@@ -44,9 +46,9 @@ function populateUI() {
     // Get selected seats from local storage and convert from string to array
     const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
     // check if selected seats is not null and not empty, and if true, then loop through all seats and mark matching seats with class selected
-    if(selectedSeats !== null && selectedSeats.length > 0) {
+    if (selectedSeats !== null && selectedSeats.length > 0) {
         seats.forEach((seat, index) => {
-            if(selectedSeats.indexOf(index) > -1) {
+            if (selectedSeats.indexOf(index) > -1) {
                 seat.classList.add('selected')
             }
         })
@@ -54,7 +56,7 @@ function populateUI() {
     // Get the selected movie index from local storage
     const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
     // Using the value from local storage, select the movie on page load
-    if(selectedMovieIndex !== null) {
+    if (selectedMovieIndex !== null) {
         movieSelect.selectedIndex = selectedMovieIndex;
     }
 }
@@ -63,16 +65,16 @@ function populateUI() {
 // 1. Event listener for container to check for click on seats
 container.addEventListener('click', e => {
     if (movieSelect.value !== "") {
-    // Check if target of click is a seat that's not occupied
-    if(e.target.classList.contains('seat') &&
-        !e.target.classList.contains('occupied')
-    ) {
-        // Add or Remove class selected from seat
-        e.target.classList.toggle('selected');
-        // Refreshing counts
-        updateSelectedCount();
+        // Check if target of click is a seat that's not occupied
+        if (e.target.classList.contains('seat') &&
+            !e.target.classList.contains('occupied')
+        ) {
+            // Add or Remove class selected from seat
+            e.target.classList.toggle('selected');
+            // Refreshing counts
+            updateSelectedCount();
+        }
     }
-}
 })
 
 // 2. Event listener for movie select
@@ -89,7 +91,18 @@ movieSelect.addEventListener('change', e => {
 updateSelectedCount();
 
 // Event listener and the function for showing the movie details based on the movie selection
-movieSelect.addEventListener('change', function () {
+movieSelect.addEventListener('change', displayDesc);
+
+// Event listener for resetting movie description on on page refresh
+reset.addEventListener('click', loadReset);  
+
+// Event listener for resetting movie description on clicking reset button
+reset.addEventListener('click', displayDesc); 
+
+loadReset();
+
+// Function for resetting movie selection list on clicking reset button  
+function displayDesc() {
     var style1 = this.value == 10 ? 'block' : 'none';
     var style2 = this.value == 15 ? 'block' : 'none';
     var style3 = this.value == 20 ? 'block' : 'none';
@@ -101,12 +114,10 @@ movieSelect.addEventListener('change', function () {
     movieDesc3.style.display = style3;
     movieDesc4.style.display = style4;
     movieDesc5.style.display = style5;
-    document.getElementById('desc-container').style.display = style6;
-});
-
+    descCon.style.display = style6;
+}
 // Function for resetting movie selection list on page refresh
-onload = function Reset() {
+function loadReset() {
     var dropDown = movieSelect;
     dropDown.selectedIndex = 0;
 }
-
