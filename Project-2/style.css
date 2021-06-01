@@ -336,4 +336,7 @@ p.text span {
     .selection-container {
         margin: 0 15px;
     }
+    .redirect-link {
+        font-size: 11px;
+    }
 }
