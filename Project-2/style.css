@@ -307,7 +307,15 @@ p.text span {
     }
     .app-container {
         width: 100%;
+        padding: 20px;
     }
+    .app-title {
+        padding-top: 50px;
+    }
+    label {
+        margin-bottom: 10px;
+    }
+
     .desc-container {
         width: 100%;
     }
