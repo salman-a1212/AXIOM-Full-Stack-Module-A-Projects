@@ -339,4 +339,7 @@ p.text span {
     .redirect-link {
         font-size: 11px;
     }
+    p.text {
+     margin: 0;
+    }
 }
