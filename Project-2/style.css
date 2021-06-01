@@ -342,4 +342,7 @@ p.text span {
     p.text {
      margin: 0;
     }
+    .btn-container {
+        margin-top: 15px;
+    }
 }
