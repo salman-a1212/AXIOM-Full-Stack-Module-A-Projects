@@ -186,12 +186,12 @@ function toggleFullScreen() {
             videoPlayer.style.cssText = "min-height: 100vh";
         }
     } else {
-        if (video.requestFullscreen) {
-            video.requestFullscreen();
-        } else if (video.webkitRequestFullscreen) { /* Safari */
-            video.webkitRequestFullscreen();
-        } else if (video.msRequestFullscreen) { /* IE11 */
-            video.msRequestFullscreen();
+        if (videoPlayer.requestFullscreen) {
+            videoPlayer.requestFullscreen();
+        } else if (videoPlayer.webkitRequestFullscreen) { /* Safari */
+            videoPlayer.webkitRequestFullscreen();
+        } else if (videoPlayer.msRequestFullscreen) { /* IE11 */
+            videoPlayer.msRequestFullscreen();
         }
     }
 }
