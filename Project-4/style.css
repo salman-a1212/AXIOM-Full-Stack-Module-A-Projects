@@ -3,32 +3,57 @@
 }
 
 body {
-    background-color: lightgray;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif; 
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(to left,#29476E 50%,#7B9F30 50%);
+}
+
+.app-container1 {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    margin: 0;
-    padding: 20px;
+    width: 50%;
+    float: left;
 }
 
-h1 {
-    color: darkgreen;
+.app-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 50%;
+    float: right;
+    /* margin-top: -50px; */
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1, h2 {
+    color: #fff;
 }
 
 p {
     text-align: center;
+    color: #313131;
 }
 
 .btn {
-    color: white;
-    background-color: darkgreen;
+    color: #313131;
+    background-color: lightgray;
     cursor: pointer;
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 20px;
     padding: 5px 10px;
+    border: 0;
 }
 
 .currency {
@@ -59,11 +84,49 @@ p {
 }
 
 .rate {
-    color: darkgreen;
+    color: #fff;
     font-size: 16px;
     padding: 0 10px;
 }
 
 select:focus, input:focus, button:focus {
     outline: 0;
+}
+
+.app2-title1, .app2-desc, .app2-currency-one select {
+    color: #fff;
+}
+
+.app2-currency-one select {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.app2-currency-one {
+    color: #fff;
+}
+
+table {
+    width: 50%;
+    margin: 5px;
+    padding: 5px;
+    float: right;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.app2-currency-one {
+   width: 100%;
+   margin-left: 225px;
+}
+
+
+.app-container2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 50%;
+    float: right;
+    margin-top: -86px;
 }
