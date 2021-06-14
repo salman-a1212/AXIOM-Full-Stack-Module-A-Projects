@@ -120,6 +120,7 @@ table {
         flex-direction: column;
         width: 50%;
         margin: 0 10px;
+        display: block;
     }
     .currency input {
         border: 0;
@@ -127,6 +128,7 @@ table {
         font-size: 15px;
         text-align: center;
         color: #fff;
-        display: block;
+        width: 50%;
+        margin: 0 10px;
     }
 }
