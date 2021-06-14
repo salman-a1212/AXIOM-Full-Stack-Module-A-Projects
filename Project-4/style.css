@@ -111,7 +111,7 @@ table {
         justify-content: center;
         width: 50%;
     }
-    .currency {
+    #currency-one, #currency-two {
         display: block;
         width: 50%;
     }
