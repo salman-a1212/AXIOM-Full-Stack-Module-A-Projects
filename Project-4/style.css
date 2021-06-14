@@ -112,7 +112,10 @@ table {
         width: 50%;
     }
     #currency-one, #currency-two {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
     .currency input {
         border: 0;
