@@ -28,11 +28,15 @@ body {
 
 h1, h2 {
     color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
 }
 
 p {
     text-align: center;
     color: #ddd;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
 }
 
 .btn {
