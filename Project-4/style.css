@@ -126,5 +126,6 @@ table {
         text-align: center;
         color: #fff;
         display: block;
+        width: 50%;
     }
 }
