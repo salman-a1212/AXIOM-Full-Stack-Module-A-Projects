@@ -119,10 +119,9 @@ table {
 @media (max-width:600px) {
     .container {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
         justify-content: center;
         width: 50%;
-        float: left;
     }
 }
