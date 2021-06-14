@@ -132,10 +132,10 @@ table {
         align-items: center;
         justify-content: left;
     }
-    #swap {
+    .swap-rates-container {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: left;
+        align-items: left;
     }
     .currency {
         margin: 0;
