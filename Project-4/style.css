@@ -135,8 +135,4 @@ table {
         justify-content: center;
         float: left;
     }
-    #swap {
-        float: left;
-        margin: 0 20px;
-    }
 }
