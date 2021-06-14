@@ -113,7 +113,6 @@ table {
     }
     #currency-one, #currency-two {
         display: block;
-        width: 50%;
     }
     .currency input {
         border: 0;
