@@ -133,9 +133,8 @@ table {
         justify-content: left;
     }
     .swap-rates-container {
-        display: flex;
-        justify-content: left;
-        align-items: left;
+        float: left;
+        text-align: left;
     }
     .currency {
         margin: 0;
