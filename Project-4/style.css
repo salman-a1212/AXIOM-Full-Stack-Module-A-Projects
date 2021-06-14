@@ -6,7 +6,7 @@ body {
     font-family: Arial, Helvetica, sans-serif; 
     margin: 0;
     padding: 20px;
-    background: linear-gradient(to left,#29476E 50%,#7B9F30 50%);
+    background: linear-gradient(to top,#69778a 50%,#8e9e6d 50%);
 }
 
 .app-container1 {
@@ -15,19 +15,8 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    width: 50%;
+    width: 100%;
     float: left;
-}
-
-.app-container2 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 50%;
-    float: right;
-    /* margin-top: -50px; */
 }
 
 .text-container {
@@ -43,7 +32,7 @@ h1, h2 {
 
 p {
     text-align: center;
-    color: #313131;
+    color: #ddd;
 }
 
 .btn {
@@ -65,9 +54,10 @@ p {
 
 .currency select {
     padding: 10px 20px 10px 10px;
-    border: 1px solid gray;
+    border: 1px solid #fff;
     font-size: 16px;
-    background: transparent;
+    background: #313131;
+    color: #fff;
 }
 
 .currency input {
@@ -75,6 +65,7 @@ p {
     background: transparent;
     font-size: 24px;
     text-align: right;
+    color: #fff;
 }
 
 .swap-rate-container {
