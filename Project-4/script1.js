@@ -22,12 +22,12 @@ async function getExchangeRates() {
     // Wait for response to convert into JSON
     const data = await res.json();
 
-    // console.log(data);
-
+    console.log(data);
+    
     // Get the conversion rates data
     const rates = data.conversion_rates;
     const keys = Object.keys(rates);
-
+    
     //clear previous data 
     ratesTable.innerHTML = `<h4>Currency <span>Amount</span></h4>`;
     // 
@@ -43,9 +43,9 @@ async function getExchangeRates() {
     });
 }
 
-        
-             
-                
+
+
+
 
 
 //Event Listener
@@ -53,3 +53,4 @@ async function getExchangeRates() {
 app2Currency.addEventListener("change", getExchangeRates);
 
 app2Amount.addEventListener("input", getExchangeRates);
+console.log(getExchangeRates());
