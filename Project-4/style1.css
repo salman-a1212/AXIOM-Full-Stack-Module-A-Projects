@@ -29,6 +29,11 @@ body {
     background-color: white;
 }
 
+.data:nth-child(odd) {
+    background-color: #313131;
+    color: #fff;
+}
+
 .data {
     display: flex;
     justify-content: space-between;
