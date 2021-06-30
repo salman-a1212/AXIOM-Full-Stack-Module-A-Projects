@@ -36,19 +36,26 @@ body {
 
 .data {
     display: flex;
-    justify-content: space-between;
-    font-size: 18px;
+    justify-content: space-around;
+    font-size: 15px;
     padding: 10px;
-    margin-bottom: 10px;
     width: 100%;
     
 }
+
+
 
 .exchange-rates {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    background-color: #ddd;
+}
+
+.exchange-rates h4 span {
+ margin: 0 125px;
+ 
 }
 
 .table {
@@ -95,7 +102,7 @@ p {
     font-size: 16px;
     background: #313131;
     color: #fff;
-    width: 80%;
+    width: 100%;
 }
 
 .currency input {
@@ -110,11 +117,6 @@ p {
     
 }
 
-.swap-rate-container {
-    /* display: flex;
-    align-items: center;
-    justify-content: space-between; */
-}
 
 .rate {
     color: #fff;
@@ -126,14 +128,6 @@ select:focus, input:focus, button:focus {
     outline: 0;
 }
 
-table {
-    /* width: 100%;
-    margin: 5px;
-    padding: 5px;
-    float: left;
-    border: 1px solid #fff;
-    color: #fff;     */
-}
 
 .app2_currency_one {
    width: 100%;
