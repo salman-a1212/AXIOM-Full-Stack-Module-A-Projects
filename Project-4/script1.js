@@ -2,7 +2,6 @@
 const app2Currency = document.getElementById('app2_currency_one');
 const app2Amount = document.getElementById('app2_amount');
 const exchangeRates = document.getElementById('exchange-rates');
-const paste = document.getElementById('paste');
 const ratesTable = document.getElementById("exchange-rates");
 
 // Function to format currency amount
@@ -27,13 +26,20 @@ async function getExchangeRates() {
     // Get the conversion rates data
     const rates = data.conversion_rates;
     const keys = Object.keys(rates);
+    
 
     //clear previous data 
     ratesTable.innerHTML = `<h4><span>Currency</span> <span>Amount</span></h4>`;
+    // const optKeys = Object.keys(opt.htmlString);
+    // let contents = opt.innerHTML;
+    // opt.innerHTML = optKeys;
     // 
     keys.forEach((key) => {
         // Create a new div element for each currency exchange rate
         const Div = document.createElement('div');
+        // const opt = document.querySelector('.currency-name');
+        
+        // console.log(contents);
         // Apply the user class to the new div
         Div.classList.add('data');
         // Add inner HTML to the Div
@@ -43,9 +49,7 @@ async function getExchangeRates() {
     });
 }
 
-const opt = document.querySelector('.currency-name');
 
-console.log(opt.value);
 
 
 
