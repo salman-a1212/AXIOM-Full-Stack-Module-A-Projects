@@ -43,8 +43,6 @@ body {
     
 }
 
-
-
 .exchange-rates {
     display: flex;
     flex-direction: column;
@@ -129,14 +127,17 @@ select:focus, input:focus, button:focus {
 }
 
 
-.app2_currency_one {
-   width: 100%;
-  float: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center
-};
+/* .container-amount {
+float: left;
+position: relative;
+
+} */
+
+/* #app2_amount {
+    position: absolute;
+    display: inline-block;
+    width: 25%; 
+} */
 
 /* media queries */
 @media (max-width:600px) {
