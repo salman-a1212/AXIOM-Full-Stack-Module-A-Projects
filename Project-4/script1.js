@@ -49,7 +49,7 @@ async function getExchangeRates() {
     });
 }
 
-// tyring out sth
+// mapping htmlString to JSON
 
 var initElement = document.getElementsByTagName("html")[0];
 var json = mapDOM(initElement, true);
