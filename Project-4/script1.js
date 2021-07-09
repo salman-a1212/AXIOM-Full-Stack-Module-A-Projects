@@ -56,7 +56,7 @@ var json = mapDOM(initElement, true);
 console.log(json);
 const opt = document.querySelector('.currency-name');
 const optKeys = opt.htmlString;
-optKeys.match('.currency-name');
+// optKeys.match('.currency-name');
     let contents = opt.innerHTML;
     opt.innerHTML = optKeys;
 initElement = contents;
