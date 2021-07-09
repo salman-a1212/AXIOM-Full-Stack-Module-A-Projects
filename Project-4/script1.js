@@ -37,7 +37,7 @@ async function getExchangeRates() {
     keys.forEach((key) => {
         // Create a new div element for each currency exchange rate
         const Div = document.createElement('div');
-        // const opt = document.querySelector('.currency-name');
+        const opt = document.querySelector('.currency-name');
         
         // console.log(contents);
         // Apply the user class to the new div
@@ -54,8 +54,12 @@ async function getExchangeRates() {
 var initElement = document.getElementsByTagName("html")[0];
 var json = mapDOM(initElement, true);
 console.log(json);
-
-initElement = "<div><span>text</span>Text2</div>";
+const opt = document.querySelector('.currency-name');
+const optKeys = opt.htmlString;
+optKeys.match('.currency-name');
+    let contents = opt.innerHTML;
+    opt.innerHTML = optKeys;
+initElement = contents;
 json = mapDOM(initElement, true);
 console.log(json);
 
@@ -112,7 +116,7 @@ function mapDOM(element, json) {
 // iterate through elements
 var list = app2Currency,
     option = list.getElementsByTagName("div"),
-    total = 0;
+    total = initElement;
 
 for (var i = 0, len = option.length; i < len; i++) {
     total += +option[i].value;
