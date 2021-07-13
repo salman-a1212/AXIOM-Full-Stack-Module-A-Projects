@@ -26,7 +26,7 @@ async function getExchangeRates() {
     // Get the conversion rates data
     const rates = data.conversion_rates;
     const keys = Object.keys(rates);
-    
+
 
     //clear previous data 
     ratesTable.innerHTML = `<h4><span>Currency</span> <span>Amount</span></h4>`;
@@ -38,7 +38,7 @@ async function getExchangeRates() {
         // Create a new div element for each currency exchange rate
         const Div = document.createElement('div');
         const opt = document.querySelector('.currency-name');
-        
+
         // console.log(contents);
         // Apply the user class to the new div
         Div.classList.add('data');
@@ -55,33 +55,45 @@ var initElement = document.getElementsByTagName("html")[0];
 var json = mapDOM(initElement, true);
 console.log(json);
 const opt = document.querySelector('.currency-name');
-const optKeys = opt.htmlString;
+const optKeys = opt.textContent;
 // optKeys.match('.currency-name');
-    let contents = opt.innerHTML;
-    opt.innerHTML = optKeys;
+let contents = opt.innerHTML;
+opt.innerHTML = optKeys;
 initElement = contents;
 json = mapDOM(initElement, true);
 console.log(json);
 
+const currencies = {
+    key: app2Currency,
+    value: optKeys
+}
+let htmlStr = optKeys;
+console.log (htmlStr);
+
+window.Object.keys(currencies).forEach(key => {
+    htmlStr = htmlStr.replace(key, currencies[key])
+}
+)
+
+
 function mapDOM(element, json) {
     var treeObject = {};
-    
+
     // If string convert to document Node
     if (typeof element === "string") {
-        if (window.DOMParser)
-        {
-              parser = new DOMParser();
-              docNode = parser.parseFromString(element,"text/xml");
+        if (window.DOMParser) {
+            parser = new DOMParser();
+            docNode = parser.parseFromString(element, "text/xml");
         }
         else // Microsoft strikes again
         {
-              docNode = new ActiveXObject("Microsoft.XMLDOM");
-              docNode.async = false;
-              docNode.loadXML(element); 
-        } 
+            docNode = new ActiveXObject("Microsoft.XMLDOM");
+            docNode.async = false;
+            docNode.loadXML(element);
+        }
         element = docNode.firstChild;
     }
-    
+
     //Recursively loop through DOM elements and assign properties to object
     function treeHTML(element, object) {
         object["type"] = element.nodeName;
@@ -94,7 +106,7 @@ function mapDOM(element, json) {
                         object["content"].push(nodeList[i].nodeValue);
                     } else {
                         object["content"].push({});
-                        treeHTML(nodeList[i], object["content"][object["content"].length -1]);
+                        treeHTML(nodeList[i], object["content"][object["content"].length - 1]);
                     }
                 }
             }
@@ -109,7 +121,7 @@ function mapDOM(element, json) {
         }
     }
     treeHTML(element, treeObject);
-    
+
     return (json) ? JSON.stringify(treeObject) : treeObject;
 }
 
