@@ -51,7 +51,8 @@ async function getExchangeRates() {
 
 // mapping htmlString to JSON
 
-var initElement = document.getElementsByTagName("html")[0];
+var initElement = document.getElementsByTagName("option")[0];
+console.log(initElement.textContent);
 var json = mapDOM(initElement, true);
 console.log(json);
 const opt = document.querySelector('.currency-name');
@@ -62,18 +63,20 @@ opt.innerHTML = optKeys;
 initElement = contents;
 json = mapDOM(initElement, true);
 console.log(json);
+console.log(opt.textContent);
+
 
 const currencies = {
-    key: app2Currency,
+    key: opt,
     value: optKeys
 }
 let htmlStr = optKeys;
 console.log (htmlStr);
 
-window.Object.keys(currencies).forEach(key => {
-    htmlStr = htmlStr.replace(key, currencies[key])
-}
-)
+// window.Object.keys(currencies).forEach(key => {
+//     htmlStr = htmlStr.replace(key, currencies[key])
+// }
+// )
 
 
 function mapDOM(element, json) {
@@ -129,14 +132,22 @@ function mapDOM(element, json) {
 var list = app2Currency,
     option = list.getElementsByTagName("div"),
     total = initElement;
-
-for (var i = 0, len = option.length; i < len; i++) {
+for (var i = 0; i < option.length; i++) {
     total += +option[i].value;
+    console.log(total);
 }
 
-console.log(total);
+
+// console.log(total);
 
 
+// sth more
+async function getCountryName(opt){
+	const response = await fetch(`https://restcountries.eu/rest/v2/name/${opt}`);
+	const responseData = await response.json();
+debugger
+	return responseData;
+}
 
 
 //Event Listener
@@ -144,4 +155,9 @@ console.log(total);
 app2Currency.addEventListener("change", getExchangeRates);
 
 app2Amount.addEventListener("input", getExchangeRates);
+
+app2Currency.addEventListener("change", getCountryName);
+
+app2Amount.addEventListener("input", getCountryName);
 console.log(getExchangeRates());
+console.log(getCountryName());
